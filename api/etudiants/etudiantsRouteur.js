@@ -1,14 +1,18 @@
 import express from 'express'
 
 const routeur =express.Router()
+const listeEtudiants=[
+    {'nom':'ayoub','prenom':'gmati'},
+    {'nom':'sara','prenom':'benbrahim'},
+    {'nom':'yassine','prenom':'naweli'},]
 
 routeur.get('/',(req, res)=>{
-    res.json({listeEtudiants})
-    console.log(req.body)
+    res.json(listeEtudiants)
+    console.log(listeEtudiants)
 })
 routeur.get('/:id',(req, res)=>{
-    res.json({listeEtudiants:[req.params.id]})
-    console.log(req.body)
+    res.json(listeEtudiants[req.params.id])
+    console.log(listeEtudiants[req.params.id])
 })
 routeur.post('/',(req, res)=>{
     res.json({message:'etudiant ajoute'})
