@@ -1,29 +1,17 @@
 import express from 'express'
 
-const routeur =express.Router()
-const listeEtudiants=[
-    {'nom':'ayoub','prenom':'gmati'},
-    {'nom':'sara','prenom':'benbrahim'},
-    {'nom':'yassine','prenom':'naweli'},]
-
-routeur.get('/',(req, res)=>{
-    res.json(listeEtudiants)
-    console.log(listeEtudiants)
-})
-routeur.get('/:id',(req, res)=>{
-    res.json(listeEtudiants[req.params.id])
-    console.log(listeEtudiants[req.params.id])
-})
-routeur.post('/',(req, res)=>{
-    res.json({message:'etudiant ajoute'})
-    console.log(req.body)
-})
-routeur.put('/:id',(req, res)=>{
-    res.json({message:'etudiant modifie'})
-})
-routeur.delete('/:id',(req, res)=>{
-    res.json({message:'etudiant supprime'})
-})
+import { getetudiantById } from '../etudiants/etudiants.controler.js'
+import { getAlletudiants } from '../etudiants/etudiants.controler.js'
+import { adddetudiant } from '../etudiants/etudiants.controler.js'
+import { updateetudiant } from '../etudiants/etudiants.controler.js'
+import { deletudiant } from '../etudiants/etudiants.controler.js'
+const etudiantRouteur =express.Router()
 
 
-export default routeur
+etudiantRouteur.get('/',getAlletudiants)
+etudiantRouteur.get('/:id',getetudiantById)
+etudiantRouteur.post('/',adddetudiant)
+etudiantRouteur.put('/:id',updateetudiant)
+etudiantRouteur.delete('/:id',deletudiant)
+
+export default etudiantRouteur 

@@ -1,27 +1,16 @@
-import express, { Router } from 'express'
+import express from 'express'
+import { getprofById } from '../profs/profs.controler.js'
+import { getAllprofs } from '../profs/profs.controler.js'
+import { adddprof } from '../profs/profs.controler.js'
+import { updateprof } from '../profs/profs.controler.js'
+import { delprof } from '../profs/profs.controler.js'
+const profRouteur =express.Router()
 
-const routeur =express.Router()
-const listeprof=[
-    {'nom':'akram','prenom':'khattabi'},
-    {'nom':'chedli','prenom':'chedliii'},
-    {'nom':'med ali','prenom':'ben selem'},]
+profRouteur.get('/',getAllprofs)
+profRouteur.get('/:id',getprofById)
+profRouteur.post('/',adddprof)
+profRouteur.put('/:id',updateprof)
+profRouteur.delete('/:id',delprof)
 
-routeur.get('/',(req, res)=>{
-    res.json(listeprof)
-    console.log(listeprof)
-})
-routeur.get('/:id',(req, res)=>{
-    res.json(listeprof[req.params.id])
-    console.log(listeprof[req.params.id])
-})
-routeur.post('/',(req, res)=>{
-    res.json({message:'prof ajoute'})
-    console.log(req.body)
-})
-routeur.put('/:id',(req, res)=>{
-    res.json({message:'prof modifie'})
-})
-routeur.delete('/:id',(req, res)=>{
-    res.json({message:'prof supprime'})
-})
-export default routeur
+
+export default profRouteur 
