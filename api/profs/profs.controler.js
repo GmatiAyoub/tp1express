@@ -1,7 +1,4 @@
 import express from 'express';
-const listeprof=[
-    {'nom':'ali','prenom':'ben mokhtar'},
-    {'nom':'akrem','prenom':'ben hafsya'}]
 export const getAllprofs=(req, res)=>{
     res.json(listeprof)
     console.log(listeprof)

@@ -1,17 +1,4 @@
 import express from 'express';
-const listeetudiant=[{
-    avatarUrl:
-        "https://img.freepik.com/premium-vector/man-avatar-profile-picture-isolated-background-avatar-profile-picture-man_1293239-4855.jpg",
-    name: "Ali BEN MOHAMED",
-    email: "ali@exemple.com",
-    class: "DSI-22",
-    },
-    {
-        avatarUrl: "https://img.freepik.com/premium-vector/man-avatar-profile-picture-isolated-background-avatar-profile-picture-man_1293239-4855.jpg",
-        name: "Sara BEN SALAH",
-        email: "sara@exemple.com",
-        class: "DSI-21",
-    }]
 export const getAlletudiants=(req, res)=>{
     res.json({donnees: listeetudiant})
     console.log(listeetudiant)
